@@ -12,7 +12,7 @@ public class ZombieController : MonoBehaviour {
 	public Level1Controller gameController;
 	public AudioSource explosionSound;
 	public AudioSource baaaaSound;
-
+    public int scoreUpdateCounter;
 
 	// Use this for initialization
 	void Start () {
@@ -21,13 +21,16 @@ public class ZombieController : MonoBehaviour {
 		AudioSource[] sounds = GetComponents<AudioSource> ();
 		this.explosionSound = sounds [1];
 		this.baaaaSound = sounds [2];
-
-		this._transform = this.GetComponent<Transform> ();
+        this.explosionSound.volume = 0.3F;
+        this._transform = this.GetComponent<Transform> ();
+        this.scoreUpdateCounter = 5;
+        InvokeRepeating("AddScore", scoreUpdateCounter,scoreUpdateCounter);
 	}
 
 	// Update is called once per frame
 	void Update () {
 		this._move ();
+
 	}
 
 	/**
@@ -51,15 +54,15 @@ public class ZombieController : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 
-		if (other.gameObject.CompareTag ("Planet")) {
-			this.baaaaSound.Play ();
-			this.gameController.ScoreValue += 100;
-		}
-
 		if (other.gameObject.CompareTag ("Cloud")) {
 			this.explosionSound.Play ();
 			this.gameController.LivesValue -= 1;
 		}
 
 	}
+
+    private void AddScore()
+    {
+        this.gameController.ScoreValue += 100;
+    }
 }

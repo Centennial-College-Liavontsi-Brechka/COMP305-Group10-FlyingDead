@@ -9,8 +9,8 @@ public class Level1Controller : MonoBehaviour {
 	private AudioSource _endGameSound;
 
 
-	// vars for testing
-	public int planetNumber = 3;
+	// Vars for testing
+	public int cloudNumber = 3;
 	public GameObject cloud;
 
 	[Header("UI Objects")]
@@ -22,9 +22,10 @@ public class Level1Controller : MonoBehaviour {
 
 	[Header("Game Objects")]
 	public GameObject zombie;
-	public GameObject planet;
+    // TODO: Level 2
+    // public GameObject planet;
 
-	public int LivesValue {
+    public int LivesValue {
 		get {
 			return this._livesValue;
 		}
@@ -64,7 +65,7 @@ public class Level1Controller : MonoBehaviour {
 
 		this._endGameSound = this.GetComponent<AudioSource> ();
 
-		for (int cloudCount = 0; cloudCount < this.planetNumber; cloudCount++) {
+		for (int cloudCount = 0; cloudCount < this.cloudNumber; cloudCount++) {
 			Instantiate (this.cloud);
 		}
 	}
@@ -81,11 +82,12 @@ public class Level1Controller : MonoBehaviour {
 		this.ScoreLabel.gameObject.SetActive (false);
 		this.LivesLabel.gameObject.SetActive (false);
 		this.zombie.SetActive (false);
-		this.planet.SetActive (false);
+        // TODO: Level 2
+		// this.planet.SetActive (false);
 		this._endGameSound.Play ();
 	}
 
-	// PUBLIC METHODS ++++++++++++++++++++++++++++++
+	// Public methods
 	public void RestartButton_Click() {
 		SceneManager.LoadScene ("Level1");
 	}
