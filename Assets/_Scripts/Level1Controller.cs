@@ -9,8 +9,8 @@ public class Level1Controller : MonoBehaviour {
 	private AudioSource _endGameSound;
 
 
-	// vars for testing
-	public int planetNumber = 3;
+	// Vars for testing
+	public int cloudNumber = 3;
 	public GameObject cloud;
 
 	[Header("UI Objects")]
@@ -64,7 +64,7 @@ public class Level1Controller : MonoBehaviour {
 
 		this._endGameSound = this.GetComponent<AudioSource> ();
 
-		for (int cloudCount = 0; cloudCount < this.planetNumber; cloudCount++) {
+		for (int cloudCount = 0; cloudCount < this.cloudNumber; cloudCount++) {
 			Instantiate (this.cloud);
 		}
 	}
@@ -85,7 +85,7 @@ public class Level1Controller : MonoBehaviour {
 		this._endGameSound.Play ();
 	}
 
-	// PUBLIC METHODS ++++++++++++++++++++++++++++++
+	// Public methods
 	public void RestartButton_Click() {
 		SceneManager.LoadScene ("Level1");
 	}
