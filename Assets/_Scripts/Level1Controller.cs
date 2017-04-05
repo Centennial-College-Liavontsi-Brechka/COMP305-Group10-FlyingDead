@@ -22,9 +22,10 @@ public class Level1Controller : MonoBehaviour {
 
 	[Header("Game Objects")]
 	public GameObject zombie;
-	public GameObject planet;
+    // TODO: Level 2
+    // public GameObject planet;
 
-	public int LivesValue {
+    public int LivesValue {
 		get {
 			return this._livesValue;
 		}
@@ -81,7 +82,8 @@ public class Level1Controller : MonoBehaviour {
 		this.ScoreLabel.gameObject.SetActive (false);
 		this.LivesLabel.gameObject.SetActive (false);
 		this.zombie.SetActive (false);
-		this.planet.SetActive (false);
+        // TODO: Level 2
+		// this.planet.SetActive (false);
 		this._endGameSound.Play ();
 	}
 
