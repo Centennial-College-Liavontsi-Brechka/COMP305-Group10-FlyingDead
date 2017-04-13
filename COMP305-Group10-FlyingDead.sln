@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{F648EF96-CDA3-814A-748F-64A12CD1A9AC}") = "COMP305-Group10-FlyingDead", "Assembly-CSharp.csproj", "{97511F19-B81F-5A51-5D5B-C37249C50DF7}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMP305-Group10-FlyingDead", "COMP305-Group10-FlyingDead.csproj", "{1E41FCB0-C620-EAB0-CB5D-8A7E1B5A3B92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{97511F19-B81F-5A51-5D5B-C37249C50DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97511F19-B81F-5A51-5D5B-C37249C50DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97511F19-B81F-5A51-5D5B-C37249C50DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97511F19-B81F-5A51-5D5B-C37249C50DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E41FCB0-C620-EAB0-CB5D-8A7E1B5A3B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E41FCB0-C620-EAB0-CB5D-8A7E1B5A3B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E41FCB0-C620-EAB0-CB5D-8A7E1B5A3B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E41FCB0-C620-EAB0-CB5D-8A7E1B5A3B92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
