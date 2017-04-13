@@ -59,7 +59,7 @@ public class PlanetController : MonoBehaviour {
 	// this method resets the game object to the original position
 	private void _reset() {
 		this._speed = 5;
-		this._transform.position = new Vector2 (354f, Random.Range(-205f, -205f));
+		this._transform.position = new Vector2 (354f, Random.Range(-205f, 205f));
 		this.GetComponent<SpriteRenderer> ().sprite = initialSprite;
 	}
 }

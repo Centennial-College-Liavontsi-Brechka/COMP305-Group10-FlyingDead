@@ -12,6 +12,7 @@ public class ZombieController : MonoBehaviour {
 	public Level1Controller gameController;
 	public AudioSource explosionSound;
 	public AudioSource baaaaSound;
+	public AudioSource fuelPickSound;
     public int scoreUpdateCounter;
 
 	// Use this for initialization
@@ -21,6 +22,7 @@ public class ZombieController : MonoBehaviour {
 		AudioSource[] sounds = GetComponents<AudioSource> ();
 		this.explosionSound = sounds [1];
 		this.baaaaSound = sounds [2];
+		this.fuelPickSound = sounds [3];
         this.explosionSound.volume = 0.3F;
         this._transform = this.GetComponent<Transform> ();
         this.scoreUpdateCounter = 5;
@@ -49,7 +51,7 @@ public class ZombieController : MonoBehaviour {
 			this._currentPosition -= new Vector2 (0, this._speed);
 		}
 
-		this._transform.position = new Vector2 (-260f, Mathf.Clamp(this._currentPosition.y, -240f, 240f));
+		this._transform.position = new Vector2 (-260f, Mathf.Clamp(this._currentPosition.y, -210f, 210f));
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
@@ -64,7 +66,13 @@ public class ZombieController : MonoBehaviour {
 			this.baaaaSound.Play ();
 			this.gameController.ScoreValue += 100;
 		}
-	}
+
+        if (other.gameObject.CompareTag("Fuel"))
+        {
+            this.fuelPickSound.Play();
+            this.gameController.LivesValue += 1;
+        }
+    }
 
     private void AddScore()
     {

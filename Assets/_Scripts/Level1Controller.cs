@@ -9,8 +9,8 @@ public class Level1Controller : MonoBehaviour {
 	private AudioSource _endGameSound;
 
 
-	// Vars for testing
-	public int cloudNumber = 3;
+    // Vars for testing
+    public int cloudNumber = 3;
 	public GameObject cloud;
 
 	[Header("UI Objects")]
@@ -49,8 +49,15 @@ public class Level1Controller : MonoBehaviour {
 			this.ScoreLabel.text = "Score: " + this._scoreValue;
 			if (this._scoreValue == 500 && SceneManager.GetActiveScene().name == "Level1") {
 				SceneManager.LoadScene ("Level2");
-			}
-		}
+                Debug.Log(SceneManager.GetActiveScene().name);
+            }
+            else if (this._scoreValue == 1000 && SceneManager.GetActiveScene().name == "Level2")
+            {
+                SceneManager.LoadScene("Level3");
+                Debug.Log(SceneManager.GetActiveScene().name);
+                
+            }
+        }
 	}
 
 
@@ -92,4 +99,6 @@ public class Level1Controller : MonoBehaviour {
 	public void RestartButton_Click() {
 		SceneManager.LoadScene ("Level1");
 	}
+
+    
 }
