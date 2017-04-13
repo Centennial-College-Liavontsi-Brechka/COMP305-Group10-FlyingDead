@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetController : MonoBehaviour {
+	public Sprite initialSprite;
+	public Sprite infectedSprite;
+
 	private int _speed;
 	private Transform _transform;
 
@@ -46,10 +49,17 @@ public class PlanetController : MonoBehaviour {
 		}
 	}
 
+	private void OnTriggerEnter2D(Collider2D other) {
+
+		if (other.gameObject.CompareTag ("Zombie")) {
+			this.GetComponent<SpriteRenderer> ().sprite = infectedSprite;
+		}
+	}
 
 	// this method resets the game object to the original position
 	private void _reset() {
 		this._speed = 5;
 		this._transform.position = new Vector2 (354f, Random.Range(-205f, -205f));
+		this.GetComponent<SpriteRenderer> ().sprite = initialSprite;
 	}
 }

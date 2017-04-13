@@ -59,6 +59,11 @@ public class ZombieController : MonoBehaviour {
 			this.gameController.LivesValue -= 1;
 		}
 
+
+		if (other.gameObject.CompareTag ("Planet")) {
+			this.baaaaSound.Play ();
+			this.gameController.ScoreValue += 100;
+		}
 	}
 
     private void AddScore()
