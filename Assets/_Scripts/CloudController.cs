@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ *      Authors: Tony Bogun, Leonti Brechka, Baljinder Tanda, Hao Jiang
+ *      Last Modified By: Tony Bogun
+ *      Date Modified: 2017-04-15
+ *      Description: Controller for 'Cloud' enemy object
+ *      Version: 3.0 
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class CloudController : MonoBehaviour {
@@ -6,6 +14,7 @@ public class CloudController : MonoBehaviour {
 	private int _drift;
 	private Transform _transform;
 
+    // Cloud speed property setter and getter
 	public int Speed {
 		get {
 			return this._speed;
@@ -15,7 +24,8 @@ public class CloudController : MonoBehaviour {
 		}
 	}
 
-	public int Drift {
+    // Cloud drift property setter and getter
+    public int Drift {
 		get {
 			return this._drift;
 		}
@@ -38,7 +48,7 @@ public class CloudController : MonoBehaviour {
 		this._checkBounds ();
 	}
 		
-	// this method moves the game object left the screen by _speed px every frame
+	// This method moves the game object left the screen by _speed px every frame
 	private void _move() {
 		Vector2 newPosition = this._transform.position;
 
@@ -48,14 +58,14 @@ public class CloudController : MonoBehaviour {
 		this._transform.position = newPosition;
 	}
 		
-	// this method checks to see if the game object meets the left-border of the screen
+	// This method checks to see if the game object meets the left-border of the screen
 	private void _checkBounds() {
 		if (this._transform.position.x <= -440f) {
 			this._reset ();
 		}
 	}
 		
-	// this method resets the game object to the original position
+	// This method resets the game object to the original position
 	private void _reset() {
 		this.Speed = Random.Range (5, 10);
 		this.Drift = Random.Range (-2, 2);

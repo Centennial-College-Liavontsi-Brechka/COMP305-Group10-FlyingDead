@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ *      Authors: Tony Bogun, Leonti Brechka, Baljinder Tanda, Hao Jiang
+ *      Last Modified By: Leonti Brechka
+ *      Date Modified: 2017-04-15
+ *      Description: Main controller of the game, controls all three level activities
+ *      Version: 3.0 
+ */
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -24,6 +32,7 @@ public class Level1Controller : MonoBehaviour {
 	public GameObject zombie;
     public GameObject planet;
 
+    //Lives value property getter and setter
     public int LivesValue {
 		get {
 			return this._livesValue;
@@ -38,7 +47,8 @@ public class Level1Controller : MonoBehaviour {
 			}
 		}
 	}
-
+    
+    // Score value property getter and setter
 	public int ScoreValue {
 		get {
 			return this._scoreValue;
@@ -49,21 +59,15 @@ public class Level1Controller : MonoBehaviour {
 			this.ScoreLabel.text = "Score: " + this._scoreValue;
 			if (this._scoreValue == 500 && SceneManager.GetActiveScene().name == "Level1") {
 				SceneManager.LoadScene ("Level2");
-                Debug.Log(SceneManager.GetActiveScene().name);
             }
             else if (this._scoreValue == 1000 && SceneManager.GetActiveScene().name == "Level2")
             {
-                SceneManager.LoadScene("Level3");
-                Debug.Log(SceneManager.GetActiveScene().name);
-                
+                SceneManager.LoadScene("Level3");         
             }
         }
 	}
 
-
-
-
-	// Use this for initialization
+	// This is for initialization
 	void Start () {
 		this.LivesValue = 5;
 		this.ScoreValue = 0;
@@ -90,14 +94,20 @@ public class Level1Controller : MonoBehaviour {
 		this.RestartButton.gameObject.SetActive (true);
 		this.ScoreLabel.gameObject.SetActive (false);
 		this.LivesLabel.gameObject.SetActive (false);
-		this.zombie.SetActive (false);
-		this.planet.SetActive (false);
+        if(this.zombie)
+        {
+            this.zombie.SetActive(false);
+        }
+		if(this.planet)
+        {
+            this.planet.SetActive(false);
+        }
 		this._endGameSound.Play ();
 	}
 
-	// Public methods
+	// Public method to return back to menu on game over screen
 	public void RestartButton_Click() {
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene ("Menu");
 	}
 
     
